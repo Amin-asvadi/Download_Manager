@@ -36,18 +36,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.liulishuo.filedownloader.FileDownloader;
@@ -58,12 +49,8 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Calendar;
 
 import idm.test.com.internetdownloadmanager.controller.TasksManager;
-import idm.test.com.internetdownloadmanager.model.Time;
-import idm.test.com.internetdownloadmanager.receiver.CancelDownload;
-import idm.test.com.internetdownloadmanager.receiver.StartDownload;
 import idm.test.com.internetdownloadmanager.view.TaskItemAdapter;
 import idm.test.com.internetdownloadmanager.view.TaskItemViewHolder;
 
@@ -80,8 +67,7 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
 
     Dialog dialog;
     int okButtonCounter;
-    Time startTime;
-    Time finishTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,9 +94,6 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
 
         dialog = new Dialog(this);
 
-
-        startTime = new Time();
-        finishTime = new Time();
 
         ////////////////////////////////////////////////////////
 
@@ -263,7 +246,6 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
                 }
             }
             if (act.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                // No explanation needed, we can request the permission.
                 act.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
                 while (true) {
                     if (act.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -279,7 +261,7 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
                 }
             }
             if (act.checkSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-                // No explanation needed, we can request the permission.
+
                 act.requestPermissions(new String[]{Manifest.permission.INTERNET}, 0);
                 while (true) {
                     if (act.checkSelfPermission(Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
@@ -295,7 +277,7 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
                 }
             }
             if (act.checkSelfPermission(Manifest.permission.SET_ALARM) != PackageManager.PERMISSION_GRANTED) {
-                // No explanation needed, we can request the permission.
+
                 act.requestPermissions(new String[]{Manifest.permission.SET_ALARM}, 0);
                 while (true) {
                     if (act.checkSelfPermission(Manifest.permission.SET_ALARM) == PackageManager.PERMISSION_GRANTED) {
@@ -311,7 +293,6 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
                 }
             }
             if (act.checkSelfPermission(Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
-                // No explanation needed, we can request the permission.
                 act.requestPermissions(new String[]{Manifest.permission.ACCESS_NETWORK_STATE}, 0);
                 while (true) {
                     if (act.checkSelfPermission(Manifest.permission.ACCESS_NETWORK_STATE) == PackageManager.PERMISSION_GRANTED) {

@@ -24,17 +24,11 @@ public class DemoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        // for demo.
+
         CONTEXT = this;
 
-        // just for open the log in this demo project.
-//        FileDownloadLog.NEED_LOG = BuildConfig.DOWNLOAD_NEED_LOG;
 
-        /**
-         * just for cache Application's Context, and ':filedownloader' progress will NOT be launched
-         * by below code, so please do not worry about performance.
-         * @see FileDownloader#init(Context)
-         */
+
         FileDownloader.setupOnApplicationOnCreate(this)
                 .connectionCreator(new FileDownloadUrlConnection
                         .Creator(new FileDownloadUrlConnection.Configuration()

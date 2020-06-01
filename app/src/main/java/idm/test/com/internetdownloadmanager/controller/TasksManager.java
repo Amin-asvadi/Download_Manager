@@ -130,11 +130,6 @@ public class TasksManager {
         dbController.deleteTask(id);
     }
 
-    public void clearAllModelList() {
-        modelList.clear();
-        dbController.deleteAll();
-    }
-
     public List<TasksManagerModel> getModelList() {
         return modelList;
     }
