@@ -22,10 +22,6 @@ import idm.test.com.internetdownloadmanager.R;
 import idm.test.com.internetdownloadmanager.controller.TasksManager;
 import idm.test.com.internetdownloadmanager.model.TasksManagerModel;
 
-/**
- * Created by erfan on 11/11/2017.
- */
-
 public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
 
     public final Set<TaskItemViewHolder> taskItemViewHolderList;
@@ -164,6 +160,8 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
             TasksManager.getImpl().removeTaskForViewHolder(task.getId());
         }
     };
+
+    //انجام عملیات دانلود توسط کیلد شروع
     private View.OnClickListener taskActionOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -200,14 +198,13 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
         }
     };
 
-
+//inflate layout برای انجام عملیات دانلود
     @Override
     public TaskItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TaskItemViewHolder holder = new TaskItemViewHolder(
                 LayoutInflater.from(
                         parent.getContext())
                         .inflate(R.layout.item_tasks_manager, parent, false));
-
         holder.taskActionBtn.setOnClickListener(taskActionOnClickListener);
 
         return holder;
@@ -230,22 +227,22 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
             final int status = TasksManager.getImpl().getStatus(model.getId(), model.getPath());
             if (status == FileDownloadStatus.pending || status == FileDownloadStatus.started ||
                     status == FileDownloadStatus.connected) {
-                // start task, but file not created yet
+                // شروع عملیات اگر فایلی وجود نداشت
                 holder.updateDownloading(status, TasksManager.getImpl().getSoFar(model.getId())
                         , TasksManager.getImpl().getTotal(model.getId()));
             } else if (!new File(model.getPath()).exists() &&
                     !new File(FileDownloadUtils.getTempPath(model.getPath())).exists()) {
-                // not exist file
+                // پرونده موجود نیست
                 holder.updateNotDownloaded(status, 0, 0);
             } else if (TasksManager.getImpl().isDownloaded(status)) {
-                // already downloaded and exist
+                // چک کردن لینک موجود بودن دانلود
                 holder.updateDownloaded();
             } else if (status == FileDownloadStatus.progress) {
-                // downloading
+                // در حال دانلود
                 holder.updateDownloading(status, TasksManager.getImpl().getSoFar(model.getId())
                         , TasksManager.getImpl().getTotal(model.getId()));
             } else {
-                // not start
+                // شروع نشده
                 holder.updateNotDownloaded(status, TasksManager.getImpl().getSoFar(model.getId())
                         , TasksManager.getImpl().getTotal(model.getId()));
             }
@@ -269,17 +266,6 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
         notifyItemRangeChanged(position, taskItemViewHolderList.size());
     }
 
-    public void removeAll() {
-
-        int size = this.taskItemViewHolderList.size();
-        if (size > 0) {
-            for (int i = 0; i < size; i++) {
-                this.taskItemViewHolderList.remove(0);
-            }
-
-            this.notifyItemRangeRemoved(0, size);
-        }
-    }
 
 
     public void updateFileSize(double size, int position) {

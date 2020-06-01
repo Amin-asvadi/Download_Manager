@@ -17,16 +17,16 @@
 
     <string name="tasks_manager_demo_title">Tasks Manager Demo</string>
     <string name="tasks_manager_demo_name" formatted="false">task: %d</string>
-    <string name="tasks_manager_demo_status_loading">Status: loading...</string>
-    <string name="tasks_manager_demo_status_pending">Status: pending</string>
-    <string name="tasks_manager_demo_status_started">Status: started</string>
-    <string name="tasks_manager_demo_status_connected">Status: connected</string>
-    <string name="tasks_manager_demo_status_progress">Status: progressing</string>
-    <string name="tasks_manager_demo_status_downloading" formatted="false">Status: downloading %d</string>
-    <string name="tasks_manager_demo_status_error">Status: error</string>
-    <string name="tasks_manager_demo_status_paused">Status: paused</string>
-    <string name="tasks_manager_demo_status_completed">Status: completed</string>
-    <string name="tasks_manager_demo_status_not_downloaded">Status: has not downloaded</string>
+    <string name="tasks_manager_demo_status_loading">وضعیت: در حال بارگذاری...</string>
+    <string name="tasks_manager_demo_status_pending">وضعیت: در حال انتظار</string>
+    <string name="tasks_manager_demo_status_started">وضعیت: شروع شده</string>
+    <string name="tasks_manager_demo_status_connected">وضعیت: متصل</string>
+    <string name="tasks_manager_demo_status_progress">وضعیت: در حال پردازش</string>
+    <string name="tasks_manager_demo_status_downloading" formatted="false">وضعیت: در حال دانلود %d</string>
+    <string name="tasks_manager_demo_status_error">وضعیت: ارور</string>
+    <string name="tasks_manager_demo_status_paused">وضعیت: وقفه</string>
+    <string name="tasks_manager_demo_status_completed">وضعیت: اتمام</string>
+    <string name="tasks_manager_demo_status_not_downloaded">وضعیت: دانلود نشده</string>
 
     <!-- hybrid test -->
     <string name="hybrid_test_title">Hybrid test</string>
