@@ -22,10 +22,4 @@ public class CancelDownload extends BroadcastReceiver {
 
     }
 
-    public void setAlarm(Context context, Calendar alarmTime) {
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent i = new Intent(context, CancelDownload.class);
-        PendingIntent pi = PendingIntent.getBroadcast(context, 7777, i, PendingIntent.FLAG_ONE_SHOT);
-        am.set(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(), pi);
-    }
 }
