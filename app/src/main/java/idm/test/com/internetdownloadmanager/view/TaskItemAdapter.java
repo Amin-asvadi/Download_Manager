@@ -193,10 +193,6 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
 
                 task.start();
             } else if (action.equals(v.getResources().getString(R.string.clear))) {
-//                // to delete
-//                new File(TasksManager.getImpl().get(holder.position).getPath()).delete();
-//                holder.taskActionBtn.setEnabled(true);
-//                holder.updateNotDownloaded(FileDownloadStatus.INVALID_STATUS, 0, 0);
                 removeAt(holder.position);
                 TasksManager.getImpl().removeItemFromModelList(holder.position, holder.id);
                 TasksManager.getImpl().removeTaskForViewHolder(holder.id);
@@ -285,21 +281,6 @@ public class TaskItemAdapter extends RecyclerView.Adapter<TaskItemViewHolder> {
         }
     }
 
-    public void updateData(List<TasksManagerModel> viewModels) {
-        tasksManagerModelList.clear();
-        tasksManagerModelList.addAll(viewModels);
-        notifyDataSetChanged();
-    }
-
-    public void addItem(int position, TasksManagerModel viewModel) {
-        tasksManagerModelList.add(position, viewModel);
-        notifyItemInserted(position);
-    }
-
-    public void removeItem(int position) {
-        tasksManagerModelList.remove(position);
-        notifyItemRemoved(position);
-    }
 
     public void updateFileSize(double size, int position) {
         for (TaskItemViewHolder holder : taskItemViewHolderList) {

@@ -111,7 +111,6 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            downloadAll();
             Toast.makeText(context, "Download Started Automatically...!", Toast.LENGTH_LONG).show();
         }
     };
@@ -316,11 +315,4 @@ public class InternetDownloadManagerActivity extends AppCompatActivity implement
             Log.i("Permission", "Below M, permissions not via code");
         }
     }
-
-    public void downloadAll() {
-        for (TaskItemViewHolder holder : taskItemAdapter.taskItemViewHolderList) {
-            holder.taskActionBtn.performClick();
-        }
-    }
-
 }

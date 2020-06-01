@@ -14,9 +14,7 @@ import cn.dreamtobe.threaddebugger.IThreadDebugger;
 import cn.dreamtobe.threaddebugger.ThreadDebugger;
 import cn.dreamtobe.threaddebugger.ThreadDebuggers;
 
-/**
- * Created by Jacksgong on 12/17/15.
- */
+
 public class DemoApplication extends Application {
     public static Context CONTEXT;
     private final static String TAG = "FileDownloadApplication";

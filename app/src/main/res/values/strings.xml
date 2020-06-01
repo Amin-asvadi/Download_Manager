@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Internet Download Manager</string>
 
-    <string name="start">Start</string>
-    <string name="pause">Pause</string>
-    <string name="delete">Delete</string>
-    <string name="clear">Clear</string>
+    <string name="start">شروع</string>
+    <string name="pause">توقف</string>
+    <string name="delete">حذف</string>
+    <string name="clear">پاکسازی</string>
 
     <string name="del_cache_files">Delete all downloaded files</string>
     <string name="del_file_error_empty">Empty folder already</string>

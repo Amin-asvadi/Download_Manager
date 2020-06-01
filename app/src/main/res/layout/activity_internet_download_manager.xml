@@ -7,7 +7,8 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,9 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/vazirtow"
             android:background="@color/colorAccent"
             android:textColor="@color/colorPrimary"
             android:clickable="true"
+            android:textStyle="bold"
             android:text="وارد کردن لینک" />
 
     </LinearLayout>
